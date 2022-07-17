@@ -1,14 +1,9 @@
 import React from 'react';
+import { FilmCardProps } from '../../types/types';
 import FilmCard from '../../components/film-card/film-card';
 import SmallFilmCard from '../../components/small-film-card/small-film-card';
 
-type MainScreenProps = {
-  title: string,
-  genre: string,
-  year: string
-}
-
-function MainScreen({title, genre, year}: MainScreenProps): JSX.Element {
+function MainScreen({title, genre, year}: FilmCardProps): JSX.Element {
   return (
     <React.Fragment>
       <FilmCard title={title} genre={genre} year={year}/>

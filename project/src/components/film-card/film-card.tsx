@@ -1,8 +1,4 @@
-type FilmCardProps = {
-  title: string,
-  genre: string,
-  year: string
-}
+import { FilmCardProps } from '../../types/types';
 
 function FilmCard({title, genre, year}: FilmCardProps): JSX.Element {
   return (
