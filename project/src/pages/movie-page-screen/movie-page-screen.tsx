@@ -1,7 +1,7 @@
 import React from 'react';
 import SmallFilmCard from '../../components/small-film-card/small-film-card';
 
-function MoviePage(): JSX.Element {
+function MoviePageScreen(): JSX.Element {
   return (
     <React.Fragment>
       <section className="film-card film-card--full">
@@ -134,4 +134,4 @@ function MoviePage(): JSX.Element {
   );
 }
 
-export default MoviePage;
+export default MoviePageScreen;
