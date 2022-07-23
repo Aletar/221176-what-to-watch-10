@@ -1,8 +1,9 @@
-import SmallFilmCard from '../../components/small-film-card/small-film-card';
 import Logo from '../../components/logo/logo';
 import Copyright from '../../components/copyright/copyright';
+import { AppProps } from '../../types/types';
+import FilmCardList from '../../components/film-card-list/film-card-list';
 
-function MyListScreen(): JSX.Element {
+function MyListScreen({films}: AppProps): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -24,17 +25,7 @@ function MyListScreen(): JSX.Element {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <div className="catalog__films-list">
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-          <SmallFilmCard />
-        </div>
+        <FilmCardList films={films} />
       </section>
 
       <footer className="page-footer">

@@ -1,14 +1,14 @@
 import React from 'react';
-import { FilmCardProps } from '../../types/types';
+import { AppProps } from '../../types/types';
 import FilmCard from '../../components/film-card/film-card';
-import SmallFilmCard from '../../components/small-film-card/small-film-card';
 import Logo from '../../components/logo/logo';
 import Copyright from '../../components/copyright/copyright';
+import FilmCardList from '../../components/film-card-list/film-card-list';
 
-function MainScreen({title, genre, year}: FilmCardProps): JSX.Element {
+function MainScreen({films}: AppProps): JSX.Element {
   return (
     <React.Fragment>
-      <FilmCard title={title} genre={genre} year={year}/>
+      <FilmCard film = {films[0]} />
 
       <div className="page-content">
         <section className="catalog">
@@ -47,28 +47,7 @@ function MainScreen({title, genre, year}: FilmCardProps): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-            <SmallFilmCard />
-          </div>
+          <FilmCardList films={films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

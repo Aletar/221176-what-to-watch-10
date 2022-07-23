@@ -1,11 +1,13 @@
 import { FilmCardProps } from '../../types/types';
+import ButtonAdd from '../button-add/button-add';
+import ButtonPlay from '../button-play/button-play';
 import Logo from '../logo/logo';
 
-function FilmCard({title, genre, year}: FilmCardProps): JSX.Element {
+function FilmCard({film}: FilmCardProps): JSX.Element {
   return (
     <section className="film-card">
       <div className="film-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+        <img src={film.backgroundImage} alt={film.name} />
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -28,30 +30,19 @@ function FilmCard({title, genre, year}: FilmCardProps): JSX.Element {
       <div className="film-card__wrap">
         <div className="film-card__info">
           <div className="film-card__poster">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+            <img src={film.previewImage} alt={`${film.name}poster`} width="218" height="327" />
           </div>
 
           <div className="film-card__desc">
-            <h2 className="film-card__title">{title}</h2>
+            <h2 className="film-card__title">{film.name}</h2>
             <p className="film-card__meta">
-              <span className="film-card__genre">{genre}</span>
-              <span className="film-card__year">{year}</span>
+              <span className="film-card__genre">{film.genre}</span>
+              <span className="film-card__year">{film.released}</span>
             </p>
 
             <div className="film-card__buttons">
-              <button className="btn btn--play film-card__button" type="button">
-                <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHref="#play-s"></use>
-                </svg>
-                <span>Play</span>
-              </button>
-              <button className="btn btn--list film-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
-                </svg>
-                <span>My list</span>
-                <span className="film-card__count">9</span>
-              </button>
+              <ButtonPlay film={film}/>
+              <ButtonAdd />
             </div>
           </div>
         </div>
