@@ -11,6 +11,6 @@ function ButtonAdd(): JSX.Element {
       <span className="film-card__count">9</span>
     </button>
   );
-};
+}
 
 export default ButtonAdd;

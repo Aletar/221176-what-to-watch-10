@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes, useParams } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import MainScreen from '../../pages/main-screen/main-screen';
 import SignInScreen from '../../pages/sign-in-screen/sign-in-screen';
 import MyListScreen from '../../pages/my-list-screen/my-list-screen';

@@ -15,6 +15,6 @@ function ButtonPlay({film}: FilmCardProps): JSX.Element {
       <span>Play</span>
     </button>
   );
-};
+}
 
 export default ButtonPlay;
