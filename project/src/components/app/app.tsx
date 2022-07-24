@@ -1,4 +1,4 @@
-import {Route, BrowserRouter, Routes} from 'react-router-dom';
+import { Route, BrowserRouter, Routes, useParams } from 'react-router-dom';
 import MainScreen from '../../pages/main-screen/main-screen';
 import SignInScreen from '../../pages/sign-in-screen/sign-in-screen';
 import MyListScreen from '../../pages/my-list-screen/my-list-screen';
@@ -35,15 +35,15 @@ function App({films}: AppProps): JSX.Element {
         />
         <Route
           path={AppRoute.AddReview}
-          element={<AddReviewScreen film={films[0]} />}
+          element={<AddReviewScreen films={films} />}
         />
         <Route
           path={AppRoute.Film}
-          element={<MoviePageScreen currentFilm={films[0]} films={films} />}
+          element={<MoviePageScreen films={films} />}
         />
         <Route
           path={AppRoute.Player}
-          element={<PlayerScreen film={films[0]} />}
+          element={<PlayerScreen films={films} />}
         />
         <Route
           path="*"

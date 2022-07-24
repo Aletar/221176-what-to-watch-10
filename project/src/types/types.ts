@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 export type AppProps = {
   films: Film[]
 }
@@ -11,6 +13,12 @@ export type FilmCardProps = {
 export type MoviePageProps = {
   currentFilm: Film,
   films: Film[]
+}
+
+export type RatingStarProps = {
+  id: string,
+  checked: boolean,
+  clickHandler: (evt: MouseEvent<HTMLInputElement>) => void
 }
 
 export type Film = {
