@@ -15,8 +15,8 @@ function AddReviewFrom({film}: FilmCardProps): JSX.Element {
       <RatingStar
         id={i.toString()}
         checked={i === formData.rating}
-        clickHandler={({target}: MouseEvent<HTMLInputElement>) => {
-          setFormData({...formData, rating: +(target as HTMLInputElement).value});
+        clickHandler={({currentTarget}: MouseEvent<HTMLInputElement>) => {
+          setFormData({...formData, rating: Number(currentTarget.value)});
         }}
       />);
   }
