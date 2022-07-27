@@ -1,4 +1,4 @@
-import {Route, BrowserRouter, Routes} from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import MainScreen from '../../pages/main-screen/main-screen';
 import SignInScreen from '../../pages/sign-in-screen/sign-in-screen';
 import MyListScreen from '../../pages/my-list-screen/my-list-screen';
@@ -8,16 +8,16 @@ import PlayerScreen from '../../pages/player-screen/player-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 
-import { FilmCardProps } from '../../types/types';
+import { AppProps } from '../../types/types';
 import { AppRoute, AuthorizationStatus } from '../../const';
 
-function App({title, genre, year}: FilmCardProps): JSX.Element {
+function App({films}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<MainScreen title={title} genre={genre} year={year} />}
+          element={<MainScreen films = {films} />}
         />
         <Route
           path={AppRoute.SignIn}
@@ -29,21 +29,21 @@ function App({title, genre, year}: FilmCardProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.NoAuth}
             >
-              <MyListScreen />
+              <MyListScreen films={films} />
             </PrivateRoute>
           }
         />
         <Route
           path={AppRoute.AddReview}
-          element={<AddReviewScreen />}
+          element={<AddReviewScreen films={films} />}
         />
         <Route
           path={AppRoute.Film}
-          element={<MoviePageScreen />}
+          element={<MoviePageScreen films={films} />}
         />
         <Route
           path={AppRoute.Player}
-          element={<PlayerScreen />}
+          element={<PlayerScreen films={films} />}
         />
         <Route
           path="*"
