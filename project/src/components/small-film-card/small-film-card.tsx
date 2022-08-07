@@ -1,7 +1,19 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FilmCardProps } from '../../types/types';
+import VideoPlayer from '../video-player/video-player';
 
-function SmallFilmCard({film, mouseOverHandler, mouseOutHandler}: FilmCardProps): JSX.Element {
+function SmallFilmCard({film}: FilmCardProps): JSX.Element {
+  const [isActive, setActive] = useState(false);
+
+  const mouseOverHandler = () => {
+    setActive(true);
+  };
+
+  const mouseOutHandler = () => {
+    setActive(false);
+  };
+
   return (
     <article
       className="small-film-card catalog__films-card"
@@ -9,7 +21,9 @@ function SmallFilmCard({film, mouseOverHandler, mouseOutHandler}: FilmCardProps)
       onMouseOut={mouseOutHandler}
     >
       <div key={film.id} className="small-film-card__image">
-        <img src={film.previewImage} alt={film.name} width="280" height="175" />
+        {isActive
+          ? <VideoPlayer poster={film.previewImage} src={film.previewVideoLink}/>
+          : <img src={film.previewImage} alt={film.name} width="280" height="175" />}
       </div>
       <h3 className="small-film-card__title">
         <Link className="small-film-card__link" to={`/films/${film.id}`}>{film.name}</Link>
