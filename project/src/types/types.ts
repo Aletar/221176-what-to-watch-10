@@ -53,3 +53,8 @@ export type Review = {
   rating: number,
   user: ReviewUser
 };
+
+export type VideoPlayerProps = {
+  poster: string,
+  src: string
+}
