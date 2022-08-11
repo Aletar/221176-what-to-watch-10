@@ -18,3 +18,7 @@ export enum FilmTabName {
   Details = 'Details',
   Reviews = 'Reviews'
 }
+
+export const ALL_GENRES = 'All genres';
+
+export const RENDERED_FILMS_COUNT_PER_STEP = 4;

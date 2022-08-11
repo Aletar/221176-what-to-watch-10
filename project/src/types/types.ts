@@ -19,6 +19,10 @@ export type RatingStarProps = {
   clickHandler: (evt: MouseEvent<HTMLInputElement>) => void
 }
 
+export type GenreListProps = {
+  films: Film[]
+}
+
 export type Film = {
   id: number,
   name: string,
