@@ -8,12 +8,12 @@ import PlayerScreen from '../../pages/player-screen/player-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import { useAppSelector } from '../../hooks';
-import { AppRoute, AuthorizationStatus } from '../../const';
+import { AppRoute } from '../../const';
 import LoadingScreen from '../../pages/loading-screen/loading-screen';
 
 function App(): JSX.Element {
 
-  const { isDataLoading } = useAppSelector((state) => state);
+  const { isDataLoading, authorizationStatus } = useAppSelector((state) => state);
 
   if (isDataLoading) {
     return <LoadingScreen />;
@@ -34,7 +34,7 @@ function App(): JSX.Element {
           path={AppRoute.MyList}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={authorizationStatus}
             >
               <MyListScreen />
             </PrivateRoute>

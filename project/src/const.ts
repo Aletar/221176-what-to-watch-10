@@ -25,4 +25,10 @@ export const RENDERED_FILMS_COUNT_PER_STEP = 8;
 
 export enum APIRoute {
   Films = '/films',
+  Login = '/login',
+}
+
+export enum HeaderSpec {
+  AddReview = 'WITH_ADD_REVIEW',
+  MyList = 'MY_LIST',
 }

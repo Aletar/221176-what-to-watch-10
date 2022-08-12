@@ -1,9 +1,9 @@
-import { useAppDisptach } from '../../hooks';
+import { useAppDispatch } from '../../hooks';
 import { getFilms } from '../../store/action';
 
 function ShowMoreButton(): JSX.Element {
 
-  const dispatch = useAppDisptach();
+  const dispatch = useAppDispatch();
 
   const clickHandler = () => (
     dispatch(getFilms())

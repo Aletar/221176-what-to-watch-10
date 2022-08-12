@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { AuthorizationStatus, HeaderSpec } from '../const';
 
 export type FilmCardListProps = {
   films: Film[]
@@ -21,6 +22,12 @@ export type RatingStarProps = {
 
 export type GenreListProps = {
   films: Film[]
+}
+
+export type HeaderProps = {
+  spec?: HeaderSpec,
+  film?: Film,
+  favoriteCount?: number
 }
 
 export type Film = {
@@ -71,5 +78,19 @@ export type InitialState = {
   genre: string,
   films: Film[],
   renderedFilmsCount: number,
-  isDataLoading: boolean
+  isDataLoading: boolean,
+  authorizationStatus: AuthorizationStatus
+}
+
+export type AuthData = {
+  email: string
+  password: string
+}
+
+export type AuthInfo = {
+  avatarUrl: string
+  email: string
+  id: number
+  name: string
+  token: string
 }
