@@ -5,9 +5,7 @@ export type AppProps = {
 }
 
 export type FilmCardProps = {
-  film: Film,
-  mouseOverHandler?: () => void,
-  mouseOutHandler?: () => void
+  film: Film
 };
 
 export type MoviePageProps = {
@@ -19,6 +17,10 @@ export type RatingStarProps = {
   id: string,
   checked: boolean,
   clickHandler: (evt: MouseEvent<HTMLInputElement>) => void
+}
+
+export type GenreListProps = {
+  films: Film[]
 }
 
 export type Film = {
@@ -57,4 +59,10 @@ export type Review = {
 export type VideoPlayerProps = {
   poster: string,
   src: string
+}
+
+export type TabProps = {
+  tabName: string,
+  isActive: boolean,
+  clickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
 }

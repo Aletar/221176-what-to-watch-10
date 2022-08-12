@@ -16,7 +16,7 @@ export const films: Film[] = [
     director: 'Дэн Кван, Дэниэл Шайнерт',
     starring: ['Мишель Йео'],
     runTime: 139,
-    genre: 'фантастика, комедия, боевик, приключения, драма',
+    genre: 'фантастика',
     released: 2022,
     isFavorite: false
   },
@@ -35,7 +35,7 @@ export const films: Film[] = [
     director: 'Филипп Кадельбах',
     starring: ['Фолькер Брух'],
     runTime: 270,
-    genre: 'военный, боевик, драма, история',
+    genre: 'драма',
     released: 2013,
     isFavorite: false
   },
@@ -54,7 +54,7 @@ export const films: Film[] = [
     director: 'Эдгар Райт',
     starring: ['Томасин МакКензи, Аня Тейлор-Джой'],
     runTime: 116,
-    genre: 'драма, триллер, ужасы',
+    genre: 'триллер',
     released: 2021,
     isFavorite: false
   },
@@ -73,7 +73,7 @@ export const films: Film[] = [
     director: 'Дэвид Фрэнкел, Микаэл Саломон, Том Хэнкс',
     starring: ['Дэмиэн Льюис, Рон Ливингстон, Донни Уолберг'],
     runTime: 600,
-    genre: 'военный, боевик, драма, история',
+    genre: 'военный',
     released: 2001,
     isFavorite: false
   },
@@ -92,7 +92,7 @@ export const films: Film[] = [
     director: 'Джереми Подесва, Тимоти Ван Паттен, Дэвид Наттер',
     starring: ['Джеймс Бэдж Дэйл, Джозеф Маццелло, Джон Седа'],
     runTime: 540,
-    genre: 'военный, боевик, драма, история',
+    genre: 'военный',
     released: 2010,
     isFavorite: false
   },
@@ -111,7 +111,7 @@ export const films: Film[] = [
     director: 'Юрий Быков',
     starring: ['Денис Шведов, Андрей Смоляков, Владислав Абашин'],
     runTime: 109,
-    genre: 'криминал, драма, триллер',
+    genre: 'драма',
     released: 2018,
     isFavorite: false
   },
@@ -130,7 +130,7 @@ export const films: Film[] = [
     director: 'Ричард Доннер',
     starring: ['Мэл Гибсон, Джоди Фостер, Джеймс Гарнер, Грэм Грин'],
     runTime: 127,
-    genre: 'комедия, приключения, вестерн',
+    genre: 'комедия',
     released: 1994,
     isFavorite: false
   },
@@ -149,7 +149,7 @@ export const films: Film[] = [
     director: 'Итан Коэн, Джоэл Коэн',
     starring: ['Джефф Бриджес, Хейли Стайнфелд, Мэтт Дэймон, Джош Бролин'],
     runTime: 110,
-    genre: 'вестерн, драма, приключения',
+    genre: 'приключения',
     released: 2010,
     isFavorite: false
   }
