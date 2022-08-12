@@ -17,11 +17,9 @@ function filterFilms(films: Film[], activeGenre: string): Film[] {
 
 function MainScreen(): JSX.Element {
 
-  const activeGenre = useAppSelector((state) => state.genre);
-  const films: Film[] = useAppSelector((state) => state.films);
-  const renderedFilmsCount = useAppSelector((state) => state.renderedFilmsCount);
+  const { genre, films, renderedFilmsCount } = useAppSelector((state) => state);
 
-  const filteredFilms = filterFilms(films, activeGenre);
+  const filteredFilms = filterFilms(films, genre);
   const renderedFilms = filteredFilms.slice(0, renderedFilmsCount);
 
   return (

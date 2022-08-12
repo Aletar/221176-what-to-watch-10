@@ -1,12 +1,13 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { ALL_GENRES, RENDERED_FILMS_COUNT_PER_STEP } from '../const';
-import { films } from '../mocks/films';
-import { changeGenre, getFilms } from './action';
+import { changeGenre, getFilms, setDataLoadingStatus, loadFilms } from './action';
+import { InitialState } from '../types/types';
 
-export const initialState = {
+export const initialState: InitialState = {
   genre: ALL_GENRES,
-  films: films,
-  renderedFilmsCount: RENDERED_FILMS_COUNT_PER_STEP
+  films: [],
+  renderedFilmsCount: RENDERED_FILMS_COUNT_PER_STEP,
+  isDataLoading: false
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -17,6 +18,12 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(getFilms, (state, action) => {
       state.renderedFilmsCount += RENDERED_FILMS_COUNT_PER_STEP;
+    })
+    .addCase(setDataLoadingStatus, (state, action) => {
+      state.isDataLoading = action.payload;
+    })
+    .addCase(loadFilms, (state, action) => {
+      state.films = action.payload;
     });
 });
 

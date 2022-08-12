@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store/index';
 import App from './components/app/app';
-import { films } from './mocks/films';
+import { fetchFilmsAction } from './store/api-action';
+import { setDataLoadingStatus } from './store/action';
+
+store.dispatch(setDataLoadingStatus(true));
+store.dispatch(fetchFilmsAction());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -12,7 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App films={films} />
+      <App />
     </Provider>
   </React.StrictMode>,
 );
