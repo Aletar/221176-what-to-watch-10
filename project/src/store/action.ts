@@ -1,12 +1,9 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const Action = {
-  CHANGE_GANRE: 'CHANGE_GENRE',
-  GET_FILMS: 'GET_FILMS'
-};
+export const changeGenre = createAction<string>('app/changeGenre');
+export const getFilms = createAction<void>('app/getFilms');
+export const setDataLoadingStatus = createAction<boolean>('app/setDataLoadingStatus');
 
-export const changeGenre = createAction(Action.CHANGE_GANRE, (value)=> ({
-  payload:value,
+export const loadFilms = createAction('data/loadFilm', (value) => ({
+  payload: value,
 }));
-
-export const getFilms = createAction(Action.GET_FILMS);

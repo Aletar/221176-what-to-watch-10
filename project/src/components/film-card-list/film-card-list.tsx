@@ -1,7 +1,7 @@
-import { AppProps } from '../../types/types';
+import { FilmCardListProps } from '../../types/types';
 import SmallFilmCard from '../small-film-card/small-film-card';
 
-function FilmCardList({films}: AppProps): JSX.Element {
+function FilmCardList({films}: FilmCardListProps): JSX.Element {
   return (
     <div className="catalog__films-list">
       {films.map((film) => (

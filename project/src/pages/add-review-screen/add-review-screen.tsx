@@ -1,12 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import AddReviewFrom from '../../components/add-review-form/add-review-form';
 import Logo from '../../components/logo/logo';
-import { AppProps } from '../../types/types';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
+import { useAppSelector } from '../../hooks';
 
-function AddReviewScreen({films}: AppProps): JSX.Element {
+function AddReviewScreen(): JSX.Element {
 
   const params = useParams();
+  const films = useAppSelector((state) => state.films);
 
   const film = films.find((f) => f.id.toString() === params.id);
 

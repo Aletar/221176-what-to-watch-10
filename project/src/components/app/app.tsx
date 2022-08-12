@@ -7,11 +7,18 @@ import MoviePageScreen from '../../pages/movie-page-screen/movie-page-screen';
 import PlayerScreen from '../../pages/player-screen/player-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
-
-import { AppProps } from '../../types/types';
+import { useAppSelector } from '../../hooks';
 import { AppRoute, AuthorizationStatus } from '../../const';
+import LoadingScreen from '../../pages/loading-screen/loading-screen';
 
-function App({films}: AppProps): JSX.Element {
+function App(): JSX.Element {
+
+  const { isDataLoading } = useAppSelector((state) => state);
+
+  if (isDataLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -29,21 +36,21 @@ function App({films}: AppProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.NoAuth}
             >
-              <MyListScreen films={films} />
+              <MyListScreen />
             </PrivateRoute>
           }
         />
         <Route
           path={AppRoute.AddReview}
-          element={<AddReviewScreen films={films} />}
+          element={<AddReviewScreen />}
         />
         <Route
           path={AppRoute.Film}
-          element={<MoviePageScreen films={films} />}
+          element={<MoviePageScreen />}
         />
         <Route
           path={AppRoute.Player}
-          element={<PlayerScreen films={films} />}
+          element={<PlayerScreen />}
         />
         <Route
           path="*"

@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { AppProps } from '../../types/types';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
+import { useAppSelector } from '../../hooks';
 
-function PlayerScreen({films}: AppProps): JSX.Element {
+function PlayerScreen(): JSX.Element {
   const params = useParams();
+  const films = useAppSelector((state) => state.films);
 
   const film = films.find((f) => f.id.toString() === params.id);
 

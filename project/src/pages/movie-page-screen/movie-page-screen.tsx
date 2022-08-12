@@ -3,15 +3,17 @@ import { Link, useParams } from 'react-router-dom';
 
 import Logo from '../../components/logo/logo';
 import Copyright from '../../components/copyright/copyright';
-import { AppProps } from '../../types/types';
 import FilmCardList from '../../components/film-card-list/film-card-list';
 import ButtonPlay from '../../components/button-play/button-play';
 import ButtonAdd from '../../components/button-add/button-add';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
 import FilmTabs from '../../components/film-tabs/film-tabs';
+import { useAppSelector } from '../../hooks';
 
-function MoviePageScreen({films}: AppProps): JSX.Element {
+function MoviePageScreen(): JSX.Element {
+
   const params = useParams();
+  const films = useAppSelector((state) => state.films);
 
   const film = films.find((f) => f.id.toString() === params.id);
 

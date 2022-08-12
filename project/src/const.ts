@@ -21,4 +21,8 @@ export enum FilmTabName {
 
 export const ALL_GENRES = 'All genres';
 
-export const RENDERED_FILMS_COUNT_PER_STEP = 4;
+export const RENDERED_FILMS_COUNT_PER_STEP = 8;
+
+export enum APIRoute {
+  Films = '/films',
+}

@@ -1,8 +1,8 @@
 import { MouseEvent } from 'react';
 
-export type AppProps = {
+export type FilmCardListProps = {
   films: Film[]
-}
+};
 
 export type FilmCardProps = {
   film: Film
@@ -65,4 +65,11 @@ export type TabProps = {
   tabName: string,
   isActive: boolean,
   clickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
+}
+
+export type InitialState = {
+  genre: string,
+  films: Film[],
+  renderedFilmsCount: number,
+  isDataLoading: boolean
 }
