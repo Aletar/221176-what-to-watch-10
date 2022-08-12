@@ -17,7 +17,7 @@ export type MoviePageProps = {
 export type RatingStarProps = {
   id: string,
   checked: boolean,
-  clickHandler: (evt: MouseEvent<HTMLInputElement>) => void
+  onClickHandler: (evt: MouseEvent<HTMLInputElement>) => void
 }
 
 export type GenreListProps = {
@@ -71,7 +71,7 @@ export type VideoPlayerProps = {
 export type TabProps = {
   tabName: string,
   isActive: boolean,
-  clickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
+  onClickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
 }
 
 export type InitialState = {

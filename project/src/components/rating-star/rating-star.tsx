@@ -1,7 +1,7 @@
 import React from 'react';
 import { RatingStarProps } from '../../types/types';
 
-function RatingStar({id, checked, clickHandler}: RatingStarProps): JSX.Element {
+function RatingStar({id, checked, onClickHandler}: RatingStarProps): JSX.Element {
   return (
     <React.Fragment>
       <input
@@ -11,7 +11,7 @@ function RatingStar({id, checked, clickHandler}: RatingStarProps): JSX.Element {
         name="rating"
         value={id}
         checked={checked}
-        onClick={clickHandler}
+        onClick={onClickHandler}
       />
       <label className="rating__label" htmlFor={`star-${id}`}>Rating {id}</label>
     </React.Fragment>
