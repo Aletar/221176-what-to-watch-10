@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { AuthorizationStatus, HeaderSpec } from '../const';
 
 export type FilmCardListProps = {
   films: Film[]
@@ -16,11 +17,17 @@ export type MoviePageProps = {
 export type RatingStarProps = {
   id: string,
   checked: boolean,
-  clickHandler: (evt: MouseEvent<HTMLInputElement>) => void
+  onClickHandler: (evt: MouseEvent<HTMLInputElement>) => void
 }
 
 export type GenreListProps = {
   films: Film[]
+}
+
+export type HeaderProps = {
+  spec?: HeaderSpec,
+  film?: Film,
+  favoriteCount?: number
 }
 
 export type Film = {
@@ -64,12 +71,26 @@ export type VideoPlayerProps = {
 export type TabProps = {
   tabName: string,
   isActive: boolean,
-  clickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
+  onClickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
 }
 
 export type InitialState = {
   genre: string,
   films: Film[],
   renderedFilmsCount: number,
-  isDataLoading: boolean
+  isDataLoading: boolean,
+  authorizationStatus: AuthorizationStatus
+}
+
+export type AuthData = {
+  email: string
+  password: string
+}
+
+export type AuthInfo = {
+  avatarUrl: string
+  email: string
+  id: number
+  name: string
+  token: string
 }
