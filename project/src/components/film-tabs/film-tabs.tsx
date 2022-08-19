@@ -29,7 +29,7 @@ function FilmTabs({film}: FilmCardProps): JSX.Element {
               key={value}
               tabName={value}
               isActive={activeTab === value}
-              clickHandler={() => setActiveTab(value)}
+              onClickHandler={() => setActiveTab(value)}
             />))}
         </ul>
       </nav>

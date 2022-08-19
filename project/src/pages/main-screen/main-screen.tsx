@@ -8,6 +8,7 @@ import GenreList from '../../components/genre-list/genre-list';
 import ShowMoreButton from '../../components/show-more-button/show-more-button';
 import { ALL_GENRES } from '../../const';
 import { useAppSelector } from '../../hooks';
+import { selectFilms, selectGenre, selectRenderedFilmsCount } from '../../store/app-data/selectors';
 
 function filterFilms(films: Film[], activeGenre: string): Film[] {
   return activeGenre === ALL_GENRES
@@ -17,7 +18,9 @@ function filterFilms(films: Film[], activeGenre: string): Film[] {
 
 function MainScreen(): JSX.Element {
 
-  const { genre, films, renderedFilmsCount } = useAppSelector((state) => state);
+  const genre = useAppSelector(selectGenre);
+  const films = useAppSelector(selectFilms);
+  const renderedFilmsCount = useAppSelector(selectRenderedFilmsCount);
 
   const filteredFilms = filterFilms(films, genre);
   const renderedFilms = filteredFilms.slice(0, renderedFilmsCount);

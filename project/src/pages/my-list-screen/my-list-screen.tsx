@@ -4,10 +4,11 @@ import FilmCardList from '../../components/film-card-list/film-card-list';
 import { useAppSelector } from '../../hooks';
 import Header from '../../components/header/header';
 import { HeaderSpec } from '../../const';
+import { selectFilms } from '../../store/app-data/selectors';
 
 function MyListScreen(): JSX.Element {
 
-  const films = useAppSelector((state) => state.films);
+  const films = useAppSelector(selectFilms);
 
   return (
     <div className="user-page">

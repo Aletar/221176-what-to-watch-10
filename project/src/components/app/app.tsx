@@ -10,10 +10,13 @@ import PrivateRoute from '../private-route/private-route';
 import { useAppSelector } from '../../hooks';
 import { AppRoute } from '../../const';
 import LoadingScreen from '../../pages/loading-screen/loading-screen';
+import { selectAuthorizationStatus } from '../../store/user-process/selectors';
+import { selectDataLoadingStatus } from '../../store/app-data/selectors';
 
 function App(): JSX.Element {
 
-  const { isDataLoading, authorizationStatus } = useAppSelector((state) => state);
+  const isDataLoading = useAppSelector(selectDataLoadingStatus);
+  const authorizationStatus = useAppSelector(selectAuthorizationStatus);
 
   if (isDataLoading) {
     return <LoadingScreen />;

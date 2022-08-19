@@ -10,11 +10,12 @@ import NotFoundScreen from '../not-found-screen/not-found-screen';
 import FilmTabs from '../../components/film-tabs/film-tabs';
 import { useAppSelector } from '../../hooks';
 import Header from '../../components/header/header';
+import { selectFilms } from '../../store/app-data/selectors';
 
 function MoviePageScreen(): JSX.Element {
 
   const params = useParams();
-  const films = useAppSelector((state) => state.films);
+  const films = useAppSelector(selectFilms);
 
   const film = films.find((f) => f.id.toString() === params.id);
 

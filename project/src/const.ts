@@ -32,3 +32,8 @@ export enum HeaderSpec {
   AddReview = 'WITH_ADD_REVIEW',
   MyList = 'MY_LIST',
 }
+
+export enum NameSpace {
+  User = 'USER',
+  AppData = 'APP_DATA'
+}
