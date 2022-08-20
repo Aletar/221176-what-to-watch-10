@@ -5,11 +5,12 @@ import AddReviewFrom from '../../components/add-review-form/add-review-form';
 import NotFoundScreen from '../not-found-screen/not-found-screen';
 import Header from '../../components/header/header';
 import { HeaderSpec } from '../../const';
+import { selectFilms } from '../../store/app-data/selectors';
 
 function AddReviewScreen(): JSX.Element {
 
   const params = useParams();
-  const films = useAppSelector((state) => state.films);
+  const films = useAppSelector(selectFilms);
 
   const film = films.find((f) => f.id.toString() === params.id);
 

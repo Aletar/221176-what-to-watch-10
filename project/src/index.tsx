@@ -4,9 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/index';
 import App from './components/app/app';
 import { checkAuthAction, fetchFilmsAction } from './store/api-action';
-import { setDataLoadingStatus } from './store/action';
 
-store.dispatch(setDataLoadingStatus(true));
 store.dispatch(fetchFilmsAction());
 store.dispatch(checkAuthAction());
 

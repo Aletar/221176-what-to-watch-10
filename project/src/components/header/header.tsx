@@ -4,9 +4,10 @@ import { AuthorizationStatus, HeaderSpec } from '../../const';
 import { useAppSelector } from '../../hooks';
 import { HeaderProps } from '../../types/types';
 import AddReviewInHeader from '../add-review-in-header/add-review-in-header';
+import { selectAuthorizationStatus } from '../../store/user-process/selectors';
 
 function Header({spec, film, favoriteCount}: HeaderProps): JSX.Element {
-  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
+  const authorizationStatus = useAppSelector(selectAuthorizationStatus);
 
   return (
     <header className="page-header film-card__head">

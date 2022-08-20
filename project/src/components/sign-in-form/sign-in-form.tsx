@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { signInAction } from '../../store/api-action';
+import { selectAuthorizationStatus } from '../../store/user-process/selectors';
 
 function SignInForm(): JSX.Element {
 
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
   const dispatch = useAppDispatch();
-  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
+  const authorizationStatus = useAppSelector(selectAuthorizationStatus);
   const navigate = useNavigate();
 
   const FormSubmitHandler = (evt: FormEvent<HTMLFormElement>) => {

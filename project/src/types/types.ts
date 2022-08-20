@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import { AuthorizationStatus, HeaderSpec } from '../const';
+import { HeaderSpec } from '../const';
 
 export type FilmCardListProps = {
   films: Film[]
@@ -72,14 +72,6 @@ export type TabProps = {
   tabName: string,
   isActive: boolean,
   onClickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
-}
-
-export type InitialState = {
-  genre: string,
-  films: Film[],
-  renderedFilmsCount: number,
-  isDataLoading: boolean,
-  authorizationStatus: AuthorizationStatus
 }
 
 export type AuthData = {

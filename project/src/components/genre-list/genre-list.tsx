@@ -3,11 +3,12 @@ import { changeGenre } from '../../store/action';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { GenreListProps } from '../../types/types';
 import { ALL_GENRES } from '../../const';
+import { selectGenre } from '../../store/app-data/selectors';
 
 function GenreList({films}: GenreListProps) {
   const genres = [ALL_GENRES, ...[...new Set((films.map((film) => film.genre)))].sort()];
   const dispatch = useAppDispatch();
-  const activeGenre = useAppSelector((state) => state.genre);
+  const activeGenre = useAppSelector(selectGenre);
 
   const clickHandler = (genre: string) => {
     dispatch(changeGenre(genre));
