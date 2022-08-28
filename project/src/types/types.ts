@@ -1,33 +1,13 @@
 import { MouseEvent } from 'react';
-import { HeaderSpec } from '../const';
 
-export type FilmCardListProps = {
-  films: Film[]
-};
-
-export type FilmCardProps = {
+export type ComponentWithFilmProps = {
   film: Film
 };
-
-export type MoviePageProps = {
-  currentFilm: Film,
-  films: Film[]
-}
 
 export type RatingStarProps = {
   id: string,
   checked: boolean,
   onClickHandler: (evt: MouseEvent<HTMLInputElement>) => void
-}
-
-export type GenreListProps = {
-  films: Film[]
-}
-
-export type HeaderProps = {
-  spec?: HeaderSpec,
-  film?: Film,
-  favoriteCount?: number
 }
 
 export type Film = {
@@ -63,21 +43,26 @@ export type Review = {
   user: ReviewUser
 };
 
+export type NewReview = {
+  comment: string;
+  rating: number;
+};
+
 export type VideoPlayerProps = {
   poster: string,
   src: string
-}
+};
 
 export type TabProps = {
   tabName: string,
   isActive: boolean,
   onClickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
-}
+};
 
 export type AuthData = {
   email: string
   password: string
-}
+};
 
 export type AuthInfo = {
   avatarUrl: string
@@ -85,4 +70,9 @@ export type AuthInfo = {
   id: number
   name: string
   token: string
-}
+};
+
+export type Favorite = {
+  id: string;
+  status: boolean | undefined;
+};

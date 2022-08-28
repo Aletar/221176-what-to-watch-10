@@ -8,7 +8,7 @@ import GenreList from '../../components/genre-list/genre-list';
 import ShowMoreButton from '../../components/show-more-button/show-more-button';
 import { ALL_GENRES } from '../../const';
 import { useAppSelector } from '../../hooks';
-import { selectFilms, selectGenre, selectRenderedFilmsCount } from '../../store/app-data/selectors';
+import { selectFilms, selectGenre, selectPromoFilm, selectRenderedFilmsCount } from '../../store/app-data/selectors';
 
 function filterFilms(films: Film[], activeGenre: string): Film[] {
   return activeGenre === ALL_GENRES
@@ -20,6 +20,7 @@ function MainScreen(): JSX.Element {
 
   const genre = useAppSelector(selectGenre);
   const films = useAppSelector(selectFilms);
+  const promoFilm = useAppSelector(selectPromoFilm);
   const renderedFilmsCount = useAppSelector(selectRenderedFilmsCount);
 
   const filteredFilms = filterFilms(films, genre);
@@ -27,13 +28,13 @@ function MainScreen(): JSX.Element {
 
   return (
     <React.Fragment>
-      <FilmCard film = {films[0]} />
+      <FilmCard film={promoFilm} />
 
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenreList films={films} />
+          <GenreList />
 
           <FilmCardList films={renderedFilms} />
 

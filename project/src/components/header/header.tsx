@@ -1,19 +1,30 @@
 import Logo from '../logo/logo';
 import { Link } from 'react-router-dom';
-import { AuthorizationStatus, HeaderSpec } from '../../const';
-import { useAppSelector } from '../../hooks';
-import { HeaderProps } from '../../types/types';
+import { AppRoute, AuthorizationStatus, HeaderSpec } from '../../const';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import AddReviewInHeader from '../add-review-in-header/add-review-in-header';
 import { selectAuthorizationStatus } from '../../store/user-process/selectors';
+import { signOutAction } from '../../store/api-action';
+import { selectFavoriteFilms, selectFilm } from '../../store/app-data/selectors';
+import React from 'react';
+import MyListHeader from '../my-list-header/my-list-header';
 
-function Header({spec, film, favoriteCount}: HeaderProps): JSX.Element {
+type HeaderProps = {
+  spec?: HeaderSpec,
+}
+
+function Header({spec}: HeaderProps): JSX.Element {
   const authorizationStatus = useAppSelector(selectAuthorizationStatus);
+  const film = useAppSelector(selectFilm);
+  const favoriteFilmsCount = useAppSelector(selectFavoriteFilms).length;
+
+  const dispatch = useAppDispatch();
 
   return (
     <header className="page-header film-card__head">
       <Logo light={false} />
 
-      {spec === HeaderSpec.MyList && <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{favoriteCount}</span></h1>}
+      {spec === HeaderSpec.MyList && <MyListHeader count={favoriteFilmsCount} />}
 
       {spec === HeaderSpec.AddReview && film !== undefined && <AddReviewInHeader film={film}/>}
 
@@ -21,11 +32,22 @@ function Header({spec, film, favoriteCount}: HeaderProps): JSX.Element {
         <ul className="user-block">
           <li className="user-block__item">
             <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+              <Link to={AppRoute.MyList}>
+                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+              </Link>
             </div>
           </li>
           <li className="user-block__item">
-            <a className="user-block__link">Sign out</a>
+            <Link
+              onClick={(evt) => {
+                evt.preventDefault();
+                dispatch(signOutAction());
+              }}
+              to="#"
+              className="user-block__link"
+            >
+            Sign out
+            </Link>
           </li>
         </ul> :
         <div className="user-block">

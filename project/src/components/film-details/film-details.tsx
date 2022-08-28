@@ -1,7 +1,8 @@
 import React from 'react';
-import { FilmCardProps } from '../../types/types';
+import { ComponentWithFilmProps } from '../../types/types';
+import { huminazeDurationInMinutes } from '../../utils';
 
-function FilmDetails({film}: FilmCardProps): JSX.Element {
+function FilmDetails({film}: ComponentWithFilmProps): JSX.Element {
   const {
     director,
     starring,
@@ -19,14 +20,14 @@ function FilmDetails({film}: FilmCardProps): JSX.Element {
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
-          <span className="film-card__details-value">{starring.map((item) => <React.Fragment key={item}>{item}<br/></React.Fragment>)}</span>
+          <span className="film-card__details-value">{starring !== undefined && starring.map((item) => <React.Fragment key={item}>{item}<br/></React.Fragment>)}</span>
         </p>
       </div>
 
       <div className="film-card__text-col">
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
-          <span className="film-card__details-value">{runTime}</span>
+          <span className="film-card__details-value">{huminazeDurationInMinutes(runTime)}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Genre</strong>

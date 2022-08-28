@@ -11,14 +11,14 @@ import { useAppSelector } from '../../hooks';
 import { AppRoute } from '../../const';
 import LoadingScreen from '../../pages/loading-screen/loading-screen';
 import { selectAuthorizationStatus } from '../../store/user-process/selectors';
-import { selectDataLoadingStatus } from '../../store/app-data/selectors';
+import { selectDataLoadingInfo } from '../../store/app-data/selectors';
 
 function App(): JSX.Element {
 
-  const isDataLoading = useAppSelector(selectDataLoadingStatus);
+  const { isFilmsLoading, isPromoLoading } = useAppSelector(selectDataLoadingInfo);
   const authorizationStatus = useAppSelector(selectAuthorizationStatus);
 
-  if (isDataLoading) {
+  if (isFilmsLoading || isPromoLoading) {
     return <LoadingScreen />;
   }
 
@@ -45,7 +45,13 @@ function App(): JSX.Element {
         />
         <Route
           path={AppRoute.AddReview}
-          element={<AddReviewScreen />}
+          element={
+            <PrivateRoute
+              authorizationStatus={authorizationStatus}
+            >
+              <AddReviewScreen />
+            </PrivateRoute>
+          }
         />
         <Route
           path={AppRoute.Film}
