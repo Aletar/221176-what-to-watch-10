@@ -21,7 +21,7 @@ function Header({spec}: HeaderProps): JSX.Element {
   const dispatch = useAppDispatch();
 
   return (
-    <header className="page-header film-card__head">
+    <header className={`page-header ${spec === HeaderSpec.MyList ? 'user-page__head' : 'film-card__head'}`}>
       <Logo light={false} />
 
       {spec === HeaderSpec.MyList && <MyListHeader count={favoriteFilmsCount} />}

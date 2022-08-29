@@ -41,7 +41,7 @@ function AddReviewForm(): JSX.Element {
   const isCommentValid = (comment: string): boolean => {
     const commentLength = comment.length;
     return commentLength >= MIN_COMMENT_LENGTH && commentLength <= MAX_COMMENT_LENGTH;
-  }
+  };
 
   return (
     <form action="#" className="add-review__form" onSubmit={onSubmitHandler}>

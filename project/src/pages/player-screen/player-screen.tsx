@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { selectDataLoadingInfo, selectFilm } from '../../store/app-data/selectors';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { fetchFilmAction } from '../../store/api-action';
-import Loading from '../../components/loading/loading';
 import LoadingScreen from '../loading-screen/loading-screen';
 import { huminazeDurationInSeconds } from '../../utils';
 
@@ -66,11 +65,11 @@ function PlayerScreen(): JSX.Element {
 
   const onWaitingHandler = () => {
     setIsLoading(true);
-  }
+  };
 
   const onCanPlayHandler = () => {
     setIsLoading(false);
-  }
+  };
 
   const onExitButtonClickHandler = () => {
     const path = `/films/${film.id}`;
@@ -118,14 +117,14 @@ function PlayerScreen(): JSX.Element {
       >
       </video>
 
+      {isLoading && <div className='spinner'></div>}
+
       <button
         type="button"
         className="player__exit"
         onClick={onExitButtonClickHandler}
       >Exit
       </button>
-
-      {isLoading && <span><Loading /></span>}
 
       <div className="player__controls">
         <div className="player__controls-row">
