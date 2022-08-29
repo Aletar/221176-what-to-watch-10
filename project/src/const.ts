@@ -62,3 +62,6 @@ export enum DurationTemplate {
 
 export const MIN_COMMENT_LENGTH = 50;
 export const MAX_COMMENT_LENGTH = 400;
+
+export const MAX_SIMILAR_FILMS = 4;
+export const MAX_GENRES_COUNT = 10;

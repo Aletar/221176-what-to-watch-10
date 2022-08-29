@@ -1,5 +1,5 @@
 import { State } from '../../types/state';
-import { ALL_GENRES, NameSpace } from '../../const';
+import { ALL_GENRES, MAX_GENRES_COUNT, MAX_SIMILAR_FILMS, NameSpace } from '../../const';
 
 export const selectFilms = (state: State) => state[NameSpace.AppData].films;
 export const selectGenre = (state: State) => state[NameSpace.AppData].genre;
@@ -8,7 +8,7 @@ export const selectPromoFilm = (state: State) => state[NameSpace.AppData].promoF
 export const selectFavoriteFilms = (state: State) => state[NameSpace.AppData].favoriteFilms;
 export const selectFilm = (state: State) => state[NameSpace.AppData].film;
 export const selectReviews = (state: State) => state[NameSpace.AppData].reviews;
-export const selectSimilarFilms = (state: State) => state[NameSpace.AppData].similarFilms.slice(0, 4);
+export const selectSimilarFilms = (state: State) => state[NameSpace.AppData].similarFilms.slice(0, MAX_SIMILAR_FILMS);
 export const selectChangingFavoriteStatus = (state: State) => state[NameSpace.AppData].changingFavoriteStatus;
 export const selectIsCommentSending = (state: State) => state[NameSpace.AppData].isCommentSending;
 
@@ -26,5 +26,5 @@ export const selectDataLoadingInfo = (state: State) => {
 
 export const selectGenres = (state: State) => {
   const films = state[NameSpace.AppData].films;
-  return [ALL_GENRES, ...[...new Set((films.map((film) => film.genre)))].sort()].slice(0, 10);
+  return [ALL_GENRES, ...[...new Set((films.map((film) => film.genre)))].sort()].slice(0, MAX_GENRES_COUNT);
 };

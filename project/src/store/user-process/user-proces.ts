@@ -4,12 +4,12 @@ import { checkAuthAction, signInAction, signOutAction } from '../api-action';
 
 type InitialState = {
   authorizationStatus: AuthorizationStatus,
-  error: string | null | unknown
+  isCredentialsSending: boolean
 }
 
 const initialState: InitialState = {
   authorizationStatus: AuthorizationStatus.Unknown,
-  error: null
+  isCredentialsSending: false
 };
 
 export const userProcess = createSlice({
@@ -24,11 +24,17 @@ export const userProcess = createSlice({
       .addCase(checkAuthAction.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       })
-      .addCase(signInAction.fulfilled, (state) => {
+      .addCase(signInAction.pending, (state) => {
         state.authorizationStatus = AuthorizationStatus.Auth;
+        state.isCredentialsSending = true;
       })
       .addCase(signInAction.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
+        state.isCredentialsSending = false;
+      })
+      .addCase(signInAction.fulfilled, (state) => {
+        state.authorizationStatus = AuthorizationStatus.Auth;
+        state.isCredentialsSending = false;
       })
       .addCase(signOutAction.fulfilled, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
