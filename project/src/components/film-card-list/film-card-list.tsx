@@ -1,5 +1,9 @@
-import { FilmCardListProps } from '../../types/types';
+import { Film } from '../../types/types';
 import SmallFilmCard from '../small-film-card/small-film-card';
+
+type FilmCardListProps = {
+  films: Film[]
+}
 
 function FilmCardList({films}: FilmCardListProps): JSX.Element {
   return (

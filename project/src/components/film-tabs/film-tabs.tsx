@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { FilmTabName } from '../../const';
-import { FilmCardProps } from '../../types/types';
+import { ComponentWithFilmProps } from '../../types/types';
 import FilmDetails from '../film-details/film-details';
 import FilmOverview from '../film-overview/film-overview';
 import FilmReviews from '../film-reviews/film-reviews';
 import FilmTab from '../film-tab/film-tab';
 
-function FilmTabs({film}: FilmCardProps): JSX.Element {
+function FilmTabs({film}: ComponentWithFilmProps): JSX.Element {
   const [activeTab, setActiveTab] = useState(FilmTabName.Overview);
 
   const renderTab = (filmTab: FilmTabName): JSX.Element => {
@@ -16,7 +16,7 @@ function FilmTabs({film}: FilmCardProps): JSX.Element {
       case FilmTabName.Details:
         return <FilmDetails film={film}/>;
       case FilmTabName.Reviews:
-        return <FilmReviews />;
+        return <FilmReviews film={film} />;
     }
   };
 

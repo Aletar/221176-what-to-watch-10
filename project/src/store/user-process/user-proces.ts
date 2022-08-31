@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { NameSpace, AuthorizationStatus } from '../../const';
-import { checkAuthAction, signInAction } from '../api-action';
+import { checkAuthAction, signInAction, signOutAction } from '../api-action';
 
 type InitialState = {
-  authorizationStatus: AuthorizationStatus
+  authorizationStatus: AuthorizationStatus,
+  isCredentialsSending: boolean
 }
 
 const initialState: InitialState = {
-  authorizationStatus: AuthorizationStatus.Unknown
+  authorizationStatus: AuthorizationStatus.Unknown,
+  isCredentialsSending: false
 };
 
 export const userProcess = createSlice({
@@ -22,10 +24,19 @@ export const userProcess = createSlice({
       .addCase(checkAuthAction.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       })
-      .addCase(signInAction.fulfilled, (state) => {
+      .addCase(signInAction.pending, (state) => {
         state.authorizationStatus = AuthorizationStatus.Auth;
+        state.isCredentialsSending = true;
       })
       .addCase(signInAction.rejected, (state) => {
+        state.authorizationStatus = AuthorizationStatus.NoAuth;
+        state.isCredentialsSending = false;
+      })
+      .addCase(signInAction.fulfilled, (state) => {
+        state.authorizationStatus = AuthorizationStatus.Auth;
+        state.isCredentialsSending = false;
+      })
+      .addCase(signOutAction.fulfilled, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       });
   }

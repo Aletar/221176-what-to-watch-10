@@ -1,9 +1,9 @@
-import { FilmCardProps } from '../../types/types';
-import ButtonAdd from '../button-add/button-add';
+import { ComponentWithFilmProps } from '../../types/types';
+import ButtonAddToFavorites from '../button-add-to-favorites/button-add-to-favorites';
 import ButtonPlay from '../button-play/button-play';
 import Header from '../header/header';
 
-function FilmCard({film}: FilmCardProps): JSX.Element {
+function FilmCard({film}: ComponentWithFilmProps): JSX.Element {
 
   const {
     backgroundImage,
@@ -38,7 +38,7 @@ function FilmCard({film}: FilmCardProps): JSX.Element {
 
             <div className="film-card__buttons">
               <ButtonPlay film={film}/>
-              <ButtonAdd />
+              <ButtonAddToFavorites film={film} />
             </div>
           </div>
         </div>

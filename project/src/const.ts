@@ -24,8 +24,12 @@ export const ALL_GENRES = 'All genres';
 export const RENDERED_FILMS_COUNT_PER_STEP = 8;
 
 export enum APIRoute {
-  Films = '/films',
   Login = '/login',
+  Logout = '/logout',
+  Films = '/films',
+  Promo = '/promo',
+  Comments = '/comments',
+  Favorite = '/favorite'
 }
 
 export enum HeaderSpec {
@@ -37,3 +41,27 @@ export enum NameSpace {
   User = 'USER',
   AppData = 'APP_DATA'
 }
+
+export const TIMEOUT_SHOW_ERROR = 2000;
+
+export enum TextRating {
+  Bad = 'Bad',
+  Normal = 'Normal',
+  Good = 'Good',
+  VeryGood = 'Very good',
+  Awesome = 'Awesome',
+}
+
+export enum DurationTemplate {
+  HoursMinutesSeconds = 'H[:] m[:] s',
+  HoursMinutes = 'H[h] m[m]',
+  Minutes = 'm[m]',
+  MinutesSeconds = 'm[:] s',
+  Seconds = 's'
+}
+
+export const MIN_COMMENT_LENGTH = 50;
+export const MAX_COMMENT_LENGTH = 400;
+
+export const MAX_SIMILAR_FILMS = 4;
+export const MAX_GENRES_COUNT = 10;

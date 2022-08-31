@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { FilmCardProps } from '../../types/types';
+import { ComponentWithFilmProps } from '../../types/types';
 
-function ButtonPlay({film}: FilmCardProps): JSX.Element {
+function ButtonPlay({film}: ComponentWithFilmProps): JSX.Element {
   const navigate = useNavigate();
   return (
     <button

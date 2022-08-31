@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { FilmCardProps } from '../../types/types';
+import { ComponentWithFilmProps } from '../../types/types';
 
-function AddReviewInHeader({film}: FilmCardProps): JSX.Element {
+function AddReviewInHeader({film}: ComponentWithFilmProps): JSX.Element {
   return (
     <nav className="breadcrumbs">
       <ul className="breadcrumbs__list">
@@ -9,7 +9,7 @@ function AddReviewInHeader({film}: FilmCardProps): JSX.Element {
           <Link to={`/films/${film.id}`} className="breadcrumbs__link">{film.name}</Link>
         </li>
         <li className="breadcrumbs__item">
-          <a className="breadcrumbs__link">Add review</a>
+          <Link to="#" className="breadcrumbs__link">Add review</Link>
         </li>
       </ul>
     </nav>
