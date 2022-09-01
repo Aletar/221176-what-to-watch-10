@@ -1,11 +1,16 @@
-import { VideoPlayerProps } from '../../types/types';
 import { useRef, useEffect } from 'react';
+import { VIDEO_PREVIEW_TIMEOUT } from '../../const';
+
+export type VideoPlayerProps = {
+  poster: string,
+  src: string
+};
 
 function VideoPlayer({src, poster}: VideoPlayerProps): JSX.Element {
   const playerRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    const autoplayTimeout = setTimeout(() => playerRef.current && playerRef.current.play(), 1000);
+    const autoplayTimeout = setTimeout(() => playerRef.current && playerRef.current.play(), VIDEO_PREVIEW_TIMEOUT);
 
     return () => clearTimeout(autoplayTimeout);
   });

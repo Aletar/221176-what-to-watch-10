@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { TabProps } from '../../types/types';
+import { MouseEvent } from 'react';
+
+export type TabProps = {
+  tabName: string,
+  isActive: boolean,
+  onClickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
+};
 
 function FilmTab({tabName, isActive, onClickHandler}: TabProps): JSX.Element {
   return (

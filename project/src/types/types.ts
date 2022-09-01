@@ -1,14 +1,6 @@
-import { MouseEvent } from 'react';
-
 export type ComponentWithFilmProps = {
   film: Film
 };
-
-export type RatingStarProps = {
-  id: string,
-  checked: boolean,
-  onClickHandler: (evt: MouseEvent<HTMLInputElement>) => void
-}
 
 export type Film = {
   id: number,
@@ -46,17 +38,6 @@ export type Review = {
 export type NewReview = {
   comment: string;
   rating: number;
-};
-
-export type VideoPlayerProps = {
-  poster: string,
-  src: string
-};
-
-export type TabProps = {
-  tabName: string,
-  isActive: boolean,
-  onClickHandler: (evt: MouseEvent<HTMLAnchorElement>) => void
 };
 
 export type AuthData = {

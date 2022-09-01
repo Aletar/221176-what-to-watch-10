@@ -1,5 +1,11 @@
 import React from 'react';
-import { RatingStarProps } from '../../types/types';
+import { MouseEvent } from 'react';
+
+export type RatingStarProps = {
+  id: string,
+  checked: boolean,
+  onClickHandler: (evt: MouseEvent<HTMLInputElement>) => void
+}
 
 function RatingStar({id, checked, onClickHandler}: RatingStarProps): JSX.Element {
   return (
@@ -12,6 +18,7 @@ function RatingStar({id, checked, onClickHandler}: RatingStarProps): JSX.Element
         value={id}
         checked={checked}
         onClick={onClickHandler}
+        readOnly
       />
       <label className="rating__label" htmlFor={`star-${id}`}>Rating {id}</label>
     </React.Fragment>
