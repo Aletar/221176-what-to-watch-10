@@ -49,8 +49,7 @@ const huminazeDurationInSeconds = (seconds: number) => {
   return durationTime.format(template);
 };
 
-// eslint-disable-next-line no-useless-escape
-const isEmailValid = (email: string): boolean => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+const isEmailValid = (email: string): boolean => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
 const isPasswordValid = (password: string): boolean => /(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{2,}/.test(password);
 

@@ -42,8 +42,6 @@ export enum NameSpace {
   AppData = 'APP_DATA'
 }
 
-export const TIMEOUT_SHOW_ERROR = 2000;
-
 export enum TextRating {
   Bad = 'Bad',
   Normal = 'Normal',
@@ -65,3 +63,5 @@ export const MAX_COMMENT_LENGTH = 400;
 
 export const MAX_SIMILAR_FILMS = 4;
 export const MAX_GENRES_COUNT = 10;
+
+export const VIDEO_PREVIEW_TIMEOUT = 1000;

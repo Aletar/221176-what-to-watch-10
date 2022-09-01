@@ -23,6 +23,7 @@ function AddReviewForm(): JSX.Element {
   for(let i = 10; i >= 1; i--) {
     ratingStars.push(
       <RatingStar
+        key={i.toString()}
         id={i.toString()}
         checked={i === formData.rating}
         onClickHandler={({currentTarget}: MouseEvent<HTMLInputElement>) => {
